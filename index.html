@@ -191,70 +191,15 @@
       width: 100%;
     }
 
-    /* Hero Section - modified to accommodate ASCII globe */
+    /* Hero Section */
     .hero {
       min-height: 90vh;
       display: flex;
       align-items: center;
-      position: relative;
     }
 
     .hero-content {
       max-width: 850px;
-      position: relative;
-      z-index: 2;
-    }
-
-    /* ASCII Globe Container - new element, does not affect layout */
-    .ascii-globe-container {
-      position: absolute;
-      right: 5%;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 1;
-      opacity: 0.85;
-      pointer-events: none;
-      animation: globeFadeIn 1s ease-out, globeFloat 6s ease-in-out infinite;
-    }
-
-    .ascii-globe {
-      font-family: 'Courier New', 'Fira Code', monospace;
-      font-size: 14px;
-      line-height: 1.2;
-      letter-spacing: 0;
-      white-space: pre;
-      color: #000000;
-      background: transparent;
-      text-shadow: none;
-      font-weight: 500;
-    }
-
-    /* Floating animation */
-    @keyframes globeFloat {
-      0%, 100% { transform: translateY(-50%) translateX(0); }
-      50% { transform: translateY(-52%) translateX(0); }
-    }
-
-    @keyframes globeFadeIn {
-      0% { opacity: 0; transform: translateY(-45%); }
-      100% { opacity: 0.85; transform: translateY(-50%); }
-    }
-
-    /* Responsive: on smaller screens reduce size or hide */
-    @media (max-width: 1100px) {
-      .ascii-globe-container {
-        transform: translateY(-50%) scale(0.8);
-        right: 2%;
-      }
-      .ascii-globe {
-        font-size: 11px;
-      }
-    }
-
-    @media (max-width: 850px) {
-      .ascii-globe-container {
-        display: none;
-      }
     }
 
     .reveal-line {
@@ -565,13 +510,8 @@
   </nav>
 
   <main>
-    <!-- Hero Section with ASCII Globe -->
+    <!-- Hero Section -->
     <section id="home" class="hero section-bg-white">
-      <!-- ASCII Globe Container - does not affect existing layout -->
-      <div class="ascii-globe-container">
-        <pre id="asciiGlobe" class="ascii-globe"></pre>
-      </div>
-      
       <div class="container">
         <div class="hero-content">
           <h1 class="reveal-line"><span>Abhishek IJ</span></h1>
@@ -838,178 +778,7 @@
           if(rect.top < window.innerHeight - 50) el.classList.add('visible');
         });
       });
-
-      // ---------- ASCII SPINNING GLOBE (12 frames, fully filled, continents represented) ----------
-      const globeFrames = [
-        // Frame 0
-        `       .,-*#@#*-,.        
-     .:*%######%#*:.      
-    .*##############*.    
-   .*####@####@@####*.   
-   *###@%@@@@@@@@@%###*  
-  .###@@@......@@@@@@##. 
-  *##@@@..........@@@##* 
-  ###@@............@@@## 
-  ###@@............@@@## 
-  ###@@............@@@## 
-  *##@@@..........@@@##* 
-  .###@@@......@@@@@@##. 
-   *###@%@@@@@@@@@%###*  
-   .*####@####@@####*.   
-    .*##############*.    
-     .:*%######%#*:.      
-       .,-*#@#*-,.        `,
-        
-        // Frame 1
-        `       .,-*#@#*-,.        
-     .:*%######%#*:.      
-    .*##############*.    
-   .*####@####@@####*.   
-   *###@%@@@@@@@@@%###*  
-  .###@@@......@@@@@@##. 
-  *##@@@..........@@@##* 
-  ###@@............@@@## 
-  ###@@............@@@## 
-  ###@@............@@@## 
-  *##@@@..........@@@##* 
-  .###@@@......@@@@@@##. 
-   *###@%@@@@@@@@@%###*  
-   .*####@####@@####*.   
-    .*##############*.    
-     .:*%######%#*:.      
-       .,-*#@#*-,.        `,
-        
-        // Additional rotation frames (shifted patterns to simulate spin)
-        `       .,-*#@#*-,.        
-     .:*%######%#*:.      
-    .*##############*.    
-   .*####@@####@@###*.   
-   *###@@@@@@@@@%###*  
-  .###@@@......@@@@@@##. 
-  *##@@@..........@@@##* 
-  ###@@............@@@## 
-  ###@@............@@@## 
-  ###@@............@@@## 
-  *##@@@..........@@@##* 
-  .###@@@......@@@@@@##. 
-   *###@%@@@@@@@@@%###*  
-   .*####@@####@@###*.   
-    .*##############*.    
-     .:*%######%#*:.      
-       .,-*#@#*-,.        `,
-        
-        `       .,-*#@#*-,.        
-     .:*%######%#*:.      
-    .*##############*.    
-   .*####@@####@@###*.   
-   *###@@@@@@@@@@%###*  
-  .###@@@......@@@@@@##. 
-  *##@@@..........@@@##* 
-  ###@@............@@@## 
-  ###@@............@@@## 
-  ###@@............@@@## 
-  *##@@@..........@@@##* 
-  .###@@@......@@@@@@##. 
-   *###@%@@@@@@@@@%###*  
-   .*####@@####@@###*.   
-    .*##############*.    
-     .:*%######%#*:.      
-       .,-*#@#*-,.        `,
-        
-        `       .,-*#@#*-,.        
-     .:*%######%#*:.      
-    .*##############*.    
-   .*####@@####@@###*.   
-   *###@@@%@@@@@@%###*  
-  .###@@@......@@@@@@##. 
-  *##@@@..........@@@##* 
-  ###@@............@@@## 
-  ###@@............@@@## 
-  ###@@............@@@## 
-  *##@@@..........@@@##* 
-  .###@@@......@@@@@@##. 
-   *###@%@@@@@@@@@%###*  
-   .*####@@####@@###*.   
-    .*##############*.    
-     .:*%######%#*:.      
-       .,-*#@#*-,.        `,
-        
-        `       .,-*#@#*-,.        
-     .:*%######%#*:.      
-    .*##############*.    
-   .*####@@####@@###*.   
-   *###@@@%@@@@@@%###*  
-  .###@@@......@@@@@@##. 
-  *##@@@..........@@@##* 
-  ###@@............@@@## 
-  ###@@............@@@## 
-  ###@@............@@@## 
-  *##@@@..........@@@##* 
-  .###@@@......@@@@@@##. 
-   *###@@@%@@@@@@%###*  
-   .*####@@####@@###*.   
-    .*##############*.    
-     .:*%######%#*:.      
-       .,-*#@#*-,.        `,
-        
-        `       .,-*#@#*-,.        
-     .:*%######%#*:.      
-    .*##############*.    
-   .*####@@####@@###*.   
-   *###@@@@@@@@@@%###*  
-  .###@@@......@@@@@@##. 
-  *##@@@..........@@@##* 
-  ###@@............@@@## 
-  ###@@............@@@## 
-  ###@@............@@@## 
-  *##@@@..........@@@##* 
-  .###@@@......@@@@@@##. 
-   *###@@@@@@@@@@%###*  
-   .*####@@####@@###*.   
-    .*##############*.    
-     .:*%######%#*:.      
-       .,-*#@#*-,.        `,
-        
-        `       .,-*#@#*-,.        
-     .:*%######%#*:.      
-    .*##############*.    
-   .*####@####@@####*.   
-   *###@@@@@@@@@%###*  
-  .###@@@......@@@@@@##. 
-  *##@@@..........@@@##* 
-  ###@@............@@@## 
-  ###@@............@@@## 
-  ###@@............@@@## 
-  *##@@@..........@@@##* 
-  .###@@@......@@@@@@##. 
-   *###@@@@@@@@@%###*  
-   .*####@####@@####*.   
-    .*##############*.    
-     .:*%######%#*:.      
-       .,-*#@#*-,.        `
-      ];
-      
-      // Ensure we have at least 8 frames, cycle through
-      const fullFrames = [];
-      for(let i = 0; i < 12; i++) {
-        fullFrames.push(globeFrames[i % globeFrames.length]);
-      }
-      
-      let frameIndex = 0;
-      const globeElement = document.getElementById('asciiGlobe');
-      
-      function updateGlobe() {
-        if(globeElement) {
-          globeElement.textContent = fullFrames[frameIndex];
-          frameIndex = (frameIndex + 1) % fullFrames.length;
-        }
-      }
-      
-      // Initial render
-      updateGlobe();
-      // Spin every 180ms for smooth rotation (medium-slow professional feel)
-      setInterval(updateGlobe, 180);
     })();
   </script>
 </body>
-</html>
+</html> 
