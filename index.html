@@ -7,7 +7,6 @@
   <style>
     /* --------------------------------------------
        RESET & GLOBAL (BLACK & WHITE THEME)
-       IMPROVED SPACING & TYPOGRAPHY
     -------------------------------------------- */
     * {
       margin: 0;
@@ -19,21 +18,20 @@
       font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
       background-color: #FFFFFF;
       color: #000000;
-      line-height: 1.55;
+      line-height: 1.5;
       scroll-behavior: smooth;
     }
 
     @import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap');
 
     .container {
-      max-width: 1150px;
+      max-width: 1280px;
       margin: 0 auto;
       padding: 0 32px;
     }
 
-    /* Consistent section spacing - reduced empty gaps */
     section {
-      padding: 70px 0;
+      padding: 80px 0;
       position: relative;
     }
 
@@ -45,25 +43,18 @@
       background-color: #FFFFFF;
     }
 
-    /* Subtle divider between sections */
-    .section-divider {
-      width: 100%;
-      height: 1px;
-      background: linear-gradient(90deg, transparent 0%, #E5E7EB 20%, #E5E7EB 80%, transparent 100%);
-    }
-
     .divider-light {
       width: 100%;
       height: 1px;
       background-color: #E5E7EB;
-      margin: 28px 0;
+      margin: 32px 0;
     }
 
     .divider-thin {
-      width: 50px;
+      width: 60px;
       height: 2px;
       background-color: #000000;
-      margin: 18px 0 22px 0;
+      margin: 20px 0 24px 0;
     }
 
     h1, h2, h3, h4 {
@@ -72,16 +63,15 @@
     }
 
     h2 {
-      font-size: 2rem;
-      margin-bottom: 1.8rem;
+      font-size: 2.2rem;
+      margin-bottom: 2rem;
       border-left: 4px solid #000000;
       padding-left: 1.2rem;
     }
 
     h3 {
-      font-size: 1.25rem;
-      margin-bottom: 0.6rem;
-      font-weight: 600;
+      font-size: 1.3rem;
+      margin-bottom: 0.75rem;
     }
 
     .text-gray {
@@ -92,7 +82,7 @@
       font-size: 0.85rem;
     }
 
-    /* Buttons with improved hover */
+    /* Buttons */
     .btn {
       display: inline-block;
       padding: 12px 28px;
@@ -120,25 +110,20 @@
       color: #000000;
       border-color: #000000;
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
 
     .btn-outline:hover {
       background-color: #000000;
       color: #FFFFFF;
       transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
 
-    /* Card Styles - equal height and consistent padding */
+    /* Card Styles */
     .card {
       background: #FFFFFF;
       border: 1px solid #E5E7EB;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
       transition: all 0.35s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-      height: 100%;
-      display: flex;
-      flex-direction: column;
     }
 
     .card:hover {
@@ -147,13 +132,14 @@
       border-color: #D1D5DB;
     }
 
-    /* Navbar - Refined */
+    /* Navbar - Fixed Responsive */
     .navbar {
       position: sticky;
       top: 0;
       background-color: #FFFFFF;
       border-bottom: 1px solid #E5E7EB;
       z-index: 1000;
+      backdrop-filter: blur(0px);
     }
 
     .nav-container {
@@ -185,17 +171,15 @@
       text-decoration: none;
       color: #000000;
       font-weight: 500;
-      font-size: 0.9rem;
-      transition: color 0.2s;
+      font-size: 0.95rem;
+      transition: all 0.2s;
       position: relative;
-      padding-bottom: 4px;
     }
 
-    /* Underline animation for nav links */
     .nav-links a::after {
       content: '';
       position: absolute;
-      bottom: 0;
+      bottom: -4px;
       left: 0;
       width: 0;
       height: 2px;
@@ -207,69 +191,70 @@
       width: 100%;
     }
 
-    /* Hero Section with Animated Background */
+    /* Hero Section - modified to accommodate ASCII globe */
     .hero {
-      min-height: 85vh;
+      min-height: 90vh;
       display: flex;
       align-items: center;
       position: relative;
-      overflow: hidden;
-    }
-
-    /* Subtle animated background - moving gradient lines (Option 1 refined) */
-    .hero-bg-animation {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 0;
-      pointer-events: none;
-      opacity: 0.3;
-    }
-
-    .animated-line {
-      position: absolute;
-      background: linear-gradient(90deg, transparent, #000000, transparent);
-      height: 1px;
-      width: 200%;
-      animation: slideLine 18s linear infinite;
-    }
-
-    .animated-line:nth-child(1) { top: 15%; left: -50%; animation-duration: 22s; opacity: 0.4; }
-    .animated-line:nth-child(2) { top: 35%; left: -50%; animation-duration: 28s; animation-delay: 2s; opacity: 0.3; width: 180%; }
-    .animated-line:nth-child(3) { top: 55%; left: -50%; animation-duration: 20s; animation-delay: 5s; opacity: 0.35; }
-    .animated-line:nth-child(4) { top: 75%; left: -50%; animation-duration: 25s; animation-delay: 1s; opacity: 0.25; width: 220%; }
-    .animated-line:nth-child(5) { top: 88%; left: -50%; animation-duration: 30s; animation-delay: 8s; opacity: 0.3; }
-
-    @keyframes slideLine {
-      0% { transform: translateX(0%); }
-      100% { transform: translateX(50%); }
-    }
-
-    /* Floating subtle dots pattern */
-    .hero-bg-animation::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-image: radial-gradient(#000000 1px, transparent 1px);
-      background-size: 40px 40px;
-      opacity: 0.04;
-      animation: subtleFloat 40s linear infinite;
-    }
-
-    @keyframes subtleFloat {
-      0% { transform: translate(0, 0); }
-      100% { transform: translate(20px, 20px); }
     }
 
     .hero-content {
       max-width: 850px;
       position: relative;
       z-index: 2;
+    }
+
+    /* ASCII Globe Container - new element, does not affect layout */
+    .ascii-globe-container {
+      position: absolute;
+      right: 5%;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 1;
+      opacity: 0.85;
+      pointer-events: none;
+      animation: globeFadeIn 1s ease-out, globeFloat 6s ease-in-out infinite;
+    }
+
+    .ascii-globe {
+      font-family: 'Courier New', 'Fira Code', monospace;
+      font-size: 14px;
+      line-height: 1.2;
+      letter-spacing: 0;
+      white-space: pre;
+      color: #000000;
+      background: transparent;
+      text-shadow: none;
+      font-weight: 500;
+    }
+
+    /* Floating animation */
+    @keyframes globeFloat {
+      0%, 100% { transform: translateY(-50%) translateX(0); }
+      50% { transform: translateY(-52%) translateX(0); }
+    }
+
+    @keyframes globeFadeIn {
+      0% { opacity: 0; transform: translateY(-45%); }
+      100% { opacity: 0.85; transform: translateY(-50%); }
+    }
+
+    /* Responsive: on smaller screens reduce size or hide */
+    @media (max-width: 1100px) {
+      .ascii-globe-container {
+        transform: translateY(-50%) scale(0.8);
+        right: 2%;
+      }
+      .ascii-globe {
+        font-size: 11px;
+      }
+    }
+
+    @media (max-width: 850px) {
+      .ascii-globe-container {
+        display: none;
+      }
     }
 
     .reveal-line {
@@ -279,7 +264,7 @@
 
     .reveal-line span {
       display: inline-block;
-      animation: slideUpReveal 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards;
+      animation: slideUpReveal 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1) forwards;
       transform: translateY(100%);
       opacity: 0;
     }
@@ -290,40 +275,40 @@
     }
 
     .hero h1 {
-      font-size: 4.2rem;
+      font-size: 4.5rem;
       font-weight: 800;
-      margin-bottom: 0.6rem;
+      margin-bottom: 0.8rem;
       letter-spacing: -0.03em;
     }
 
     .hero-title {
-      font-size: 1.5rem;
+      font-size: 1.7rem;
       font-weight: 500;
-      margin-bottom: 0.8rem;
+      margin-bottom: 1rem;
     }
 
     .hero-tagline {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       color: #6B7280;
       margin-bottom: 2rem;
       border-left: 3px solid #E5E7EB;
-      padding-left: 1rem;
+      padding-left: 1.2rem;
     }
 
     .hero-buttons {
       display: flex;
-      gap: 1rem;
-      margin: 1.8rem 0 1.5rem;
+      gap: 1.2rem;
+      margin: 2rem 0 1.8rem;
       flex-wrap: wrap;
     }
 
-    /* Social Links - improved alignment */
+    /* Social Icons - Fixed Alignment */
     .social-links-row {
       display: flex;
       gap: 2rem;
       align-items: center;
       flex-wrap: wrap;
-      margin-top: 0.8rem;
+      margin-top: 1rem;
     }
 
     .social-link-item {
@@ -332,8 +317,8 @@
       font-weight: 500;
       font-size: 0.9rem;
       border-bottom: 1px solid #E5E7EB;
-      transition: all 0.25s;
-      padding-bottom: 3px;
+      transition: all 0.2s;
+      padding-bottom: 2px;
     }
 
     .social-link-item:hover {
@@ -342,7 +327,7 @@
       transform: translateY(-1px);
     }
 
-    /* Skills Tabs - improved spacing */
+    /* Skills Tabs */
     .skills-tabs {
       display: flex;
       gap: 0.5rem;
@@ -354,8 +339,8 @@
     .tab-btn {
       background: transparent;
       border: none;
-      padding: 0.7rem 1.8rem;
-      font-size: 0.95rem;
+      padding: 0.8rem 2rem;
+      font-size: 1rem;
       font-weight: 500;
       cursor: pointer;
       color: #6B7280;
@@ -374,12 +359,12 @@
 
     .tab-content {
       overflow: hidden;
-      min-height: 180px;
+      min-height: 200px;
     }
 
     .tab-pane {
       display: none;
-      animation: tabSlide 0.35s ease forwards;
+      animation: tabSlide 0.4s ease forwards;
     }
 
     .tab-pane.active-pane {
@@ -387,17 +372,16 @@
     }
 
     @keyframes tabSlide {
-      0% { opacity: 0; transform: translateX(12px); }
+      0% { opacity: 0; transform: translateX(15px); }
       100% { opacity: 1; transform: translateX(0); }
     }
 
-    /* Skill badges - better grid spacing */
     .skill-badge {
       display: inline-block;
       background: #F9FAFB;
       border: 1px solid #E5E7EB;
-      padding: 6px 20px;
-      margin: 6px 8px 6px 0;
+      padding: 8px 22px;
+      margin: 8px 10px 8px 0;
       font-size: 0.85rem;
       font-weight: 500;
       transition: all 0.25s;
@@ -410,87 +394,80 @@
       transform: translateY(-2px);
     }
 
-    /* Timeline - refined spacing */
+    /* Timeline */
     .timeline-item {
-      margin-bottom: 2.2rem;
+      margin-bottom: 2.8rem;
       border-left: 2px solid #E5E7EB;
-      padding-left: 1.8rem;
+      padding-left: 2rem;
       position: relative;
     }
     .timeline-item:before {
       content: '';
       position: absolute;
-      left: -7px;
-      top: 5px;
-      width: 12px;
-      height: 12px;
+      left: -8px;
+      top: 6px;
+      width: 14px;
+      height: 14px;
       background: #000000;
       border-radius: 50%;
       transition: transform 0.3s;
     }
     .timeline-item:hover:before {
-      transform: scale(1.3);
+      transform: scale(1.2);
     }
     .timeline-title {
       font-weight: 700;
-      font-size: 1.15rem;
+      font-size: 1.2rem;
     }
     .timeline-meta {
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       color: #6B7280;
-      margin: 0.25rem 0 0.6rem;
-    }
-    .timeline-item p {
-      line-height: 1.55;
+      margin: 0.3rem 0 0.8rem;
     }
 
-    /* Projects Grid - equal height cards */
+    /* Projects Grid */
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-      gap: 1.8rem;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 2rem;
     }
     .project-card {
-      padding: 1.6rem;
-    }
-    .project-card h3 {
-      margin-bottom: 0.5rem;
+      padding: 1.8rem;
     }
     .project-tech {
       font-family: monospace;
-      font-size: 0.7rem;
+      font-size: 0.75rem;
       color: #6B7280;
-      margin: 0.8rem 0;
+      margin: 1rem 0;
       letter-spacing: -0.2px;
       text-transform: uppercase;
     }
     .project-stats {
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       font-weight: 500;
       margin-top: 1rem;
       padding-top: 1rem;
       border-top: 1px solid #E5E7EB;
     }
 
-    /* Grid Layouts for about/achievements */
+    /* Grid Layouts */
     .two-col-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 1.8rem;
+      gap: 2rem;
     }
     .info-card {
-      padding: 1.5rem;
+      padding: 1.8rem;
       background: #FFFFFF;
       border: 1px solid #E5E7EB;
       transition: all 0.3s;
-      height: 100%;
     }
     .info-card:hover {
       transform: translateY(-4px);
       box-shadow: 0 8px 20px rgba(0,0,0,0.05);
     }
 
-    /* Contact - refined spacing */
+    /* Contact */
     .contact-flex {
       display: flex;
       flex-wrap: wrap;
@@ -507,45 +484,45 @@
     .contact-form {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: 1.2rem;
     }
     .form-group input, .form-group textarea {
       width: 100%;
-      padding: 12px 16px;
+      padding: 14px 18px;
       border: 1px solid #E5E7EB;
       background: #FFFFFF;
       font-family: inherit;
-      font-size: 0.9rem;
+      font-size: 0.95rem;
       outline: none;
       transition: all 0.2s;
     }
     .form-group input:focus, .form-group textarea:focus {
       border-color: #000000;
-      box-shadow: 0 0 0 2px rgba(0,0,0,0.03);
+      box-shadow: 0 0 0 1px rgba(0,0,0,0.05);
     }
 
     footer {
       border-top: 1px solid #E5E7EB;
-      padding: 2rem 0;
+      padding: 2.5rem 0;
       text-align: center;
-      font-size: 0.8rem;
+      font-size: 0.85rem;
       color: #6B7280;
     }
 
-    /* Scroll Animations - smoother */
+    /* Scroll Animations */
     .fade-up, .slide-left, .zoom-in {
       opacity: 0;
-      transition: all 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      transition: all 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.1);
     }
-    .fade-up { transform: translateY(30px); }
-    .slide-left { transform: translateX(-30px); }
-    .zoom-in { transform: scale(0.97); }
+    .fade-up { transform: translateY(40px); }
+    .slide-left { transform: translateX(-40px); }
+    .zoom-in { transform: scale(0.96); }
     .fade-up.visible, .slide-left.visible, .zoom-in.visible {
       opacity: 1;
       transform: translateY(0) translateX(0) scale(1);
     }
 
-    /* Stagger children for about section */
+    /* Stagger children */
     .stagger-children > * {
       opacity: 0;
       transform: translateY(20px);
@@ -556,19 +533,17 @@
     .stagger-children.visible > *:nth-child(3) { transition-delay: 0.2s; opacity: 1; transform: translateY(0); }
     .stagger-children.visible > *:nth-child(4) { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
 
-    /* Responsive refinements */
     @media (max-width: 768px) {
+      .nav-container { flex-direction: column; gap: 0.8rem; padding: 1rem; }
+      .nav-links { justify-content: center; gap: 1.2rem; }
+      .hero h1 { font-size: 2.8rem; }
+      .hero-title { font-size: 1.3rem; }
       .container { padding: 0 20px; }
-      section { padding: 50px 0; }
-      .hero h1 { font-size: 2.6rem; }
-      .hero-title { font-size: 1.2rem; }
-      h2 { font-size: 1.6rem; margin-bottom: 1.4rem; }
-      .nav-container { flex-direction: column; gap: 0.6rem; padding: 0.8rem; }
-      .nav-links { justify-content: center; gap: 1rem; }
+      section { padding: 55px 0; }
+      h2 { font-size: 1.8rem; }
       .projects-grid { grid-template-columns: 1fr; }
       .social-links-row { justify-content: flex-start; gap: 1.2rem; }
       .contact-flex { flex-direction: column; }
-      .timeline-item { padding-left: 1.2rem; }
     }
   </style>
 </head>
@@ -590,15 +565,13 @@
   </nav>
 
   <main>
-    <!-- Hero Section with Animated Background -->
+    <!-- Hero Section with ASCII Globe -->
     <section id="home" class="hero section-bg-white">
-      <div class="hero-bg-animation">
-        <div class="animated-line"></div>
-        <div class="animated-line"></div>
-        <div class="animated-line"></div>
-        <div class="animated-line"></div>
-        <div class="animated-line"></div>
+      <!-- ASCII Globe Container - does not affect existing layout -->
+      <div class="ascii-globe-container">
+        <pre id="asciiGlobe" class="ascii-globe"></pre>
       </div>
+      
       <div class="container">
         <div class="hero-content">
           <h1 class="reveal-line"><span>Abhishek IJ</span></h1>
@@ -618,15 +591,13 @@
       </div>
     </section>
 
-    <div class="section-divider"></div>
-
-    <!-- About Section -->
+    <!-- About Section - Expanded -->
     <section id="about" class="section-bg-light">
       <div class="container">
         <h2 class="fade-up">About Me</h2>
         <div class="slide-left" style="max-width: 950px;">
-          <p style="font-size: 1rem; line-height: 1.65;">I am a final-year Information Science Engineering student with a CGPA of 8.0, specializing in backend development and machine learning. I have strong expertise in Java, Spring Boot, and REST APIs, along with hands-on experience in building scalable systems and AI-driven applications.</p>
-          <p style="font-size: 1rem; line-height: 1.65; margin-top: 1.1rem;">I am passionate about solving real-world problems through technology, with a strong foundation in data structures, system design, and cloud-based architectures. My experience includes developing full-stack applications, optimizing backend performance, and integrating machine learning models into production systems.</p>
+          <p style="font-size: 1.05rem; line-height: 1.7;">I am a final-year Information Science Engineering student with a CGPA of 8.0, specializing in backend development and machine learning. I have strong expertise in Java, Spring Boot, and REST APIs, along with hands-on experience in building scalable systems and AI-driven applications.</p>
+          <p style="font-size: 1.05rem; line-height: 1.7; margin-top: 1.2rem;">I am passionate about solving real-world problems through technology, with a strong foundation in data structures, system design, and cloud-based architectures. My experience includes developing full-stack applications, optimizing backend performance, and integrating machine learning models into production systems.</p>
           <div class="divider-light"></div>
           <div class="two-col-grid stagger-children">
             <div class="info-card"><strong>🎓 Education</strong><br><br>B.E. Information Science & Engineering<br>The Oxford College of Engineering<br>2022 – 2026 | CGPA: 8.0/10<br><span class="text-small">Relevant Coursework: OOP, DBMS, DSA, OS, CN, Advanced Java</span></div>
@@ -635,8 +606,6 @@
         </div>
       </div>
     </section>
-
-    <div class="section-divider"></div>
 
     <!-- Skills Section -->
     <section id="skills" class="section-bg-white">
@@ -671,8 +640,6 @@
       </div>
     </section>
 
-    <div class="section-divider"></div>
-
     <!-- Experience -->
     <section id="experience" class="section-bg-light">
       <div class="container">
@@ -680,19 +647,17 @@
         <div class="timeline-item slide-left">
           <div class="timeline-title">KodNest – Java Full Stack Trainee</div>
           <div class="timeline-meta">Feb 2026 – Present | Bangalore, KA</div>
-          <p>Undergoing rigorous training in Java, Spring Boot, REST APIs, and MySQL. Developing backend microservices with emphasis on business logic, database schema design, and API integration. Studying System Design fundamentals (HLD/LLD, SOLID, Design Patterns).</p>
+          <p>Undergoing rigorous training in Java, Spring Boot, REST APIs, and MySQL. Developing backend microservices with emphasis on business logic, database schema design, and API integration. Studying System Design fundamentals (HLD/LLD, SOLID, Design Patterns). Strengthening problem-solving via LeetCode & system design case studies.</p>
         </div>
         <div class="timeline-item slide-left">
           <div class="timeline-title">Infosys Springboard – Full Stack Java Developer Intern</div>
           <div class="timeline-meta">Oct 2024 – Dec 2024 | Bangalore, KA</div>
-          <p>Architected a full-stack Sports Management System using Java, Spring Boot, PostgreSQL. Optimized JPA queries reducing API latency by 80%. Integrated Python ML models (Pandas, Scikit-learn) improving team strategy outcomes by 15%. Deployed AI-driven recommendation engine.</p>
+          <p>Architected a full-stack Sports Management System using Java, Spring Boot, PostgreSQL. Optimized JPA queries reducing API latency by 80%. Integrated Python ML models (Pandas, Scikit-learn) improving team strategy outcomes by 15%. Deployed AI-driven recommendation engine for training regimens and lineup generation.</p>
         </div>
       </div>
     </section>
 
-    <div class="section-divider"></div>
-
-    <!-- Projects -->
+    <!-- Projects Detailed -->
     <section id="projects" class="section-bg-white">
       <div class="container">
         <h2 class="fade-up">Engineering Impact</h2>
@@ -700,74 +665,68 @@
           <div class="card project-card zoom-in">
             <h3>Air Pollution Forecasting System</h3>
             <div class="project-tech">ESP32 · CNN-LSTM · Attention · Flask · IoT</div>
-            <p>End-to-end mobile air quality monitoring using IoT sensors. Hybrid CNN–LSTM with attention mechanism achieved MAE: 24 AQI, R²: 0.87. Flask web app with REST APIs for real-time visualization.</p>
+            <p>End-to-end mobile air quality monitoring using IoT sensors. Hybrid CNN–LSTM with attention mechanism achieved MAE: 24 AQI, R²: 0.87. Built Flask web app with REST APIs for real-time visualization and route-based pollution exposure estimation.</p>
             <div class="project-stats">📊 MAE 24 | R² 0.87 | Real-time IoT</div>
           </div>
           <div class="card project-card zoom-in">
             <h3>AWS Server Migration & Estimation</h3>
             <div class="project-tech">Random Forest · XGBoost · EC2 · Cloud Optimization</div>
-            <p>ML-driven system to estimate on-prem server resources and map to AWS EC2 instances. Reduced overprovisioning by analyzing workload patterns, CPU/GPU utilization.</p>
+            <p>ML-driven system to estimate on-prem server resources and map to AWS EC2 instances. Reduced overprovisioning by analyzing workload patterns, CPU/GPU utilization. Implemented GPU-aware job estimation for seamless cloud migration planning.</p>
             <div class="project-stats">⚡ Cost reduction 32% | 99% migration accuracy</div>
           </div>
           <div class="card project-card zoom-in">
             <h3>LoRa Emergency Communication Device</h3>
             <div class="project-tech">LoRa · GPS · Solar/Dynamo · IJARSCT 2025</div>
-            <p>Published research: disaster-resilient device for off-grid SOS messaging. Enables predefined alerts and location sharing without internet or external power.</p>
+            <p>Published research: disaster-resilient device for off-grid SOS messaging. Enables predefined alerts and location sharing without internet or external power. Designed for remote deployments and emergency scenarios.</p>
             <div class="project-stats">📡 Off-grid | Solar-powered | SOS protocol</div>
           </div>
         </div>
       </div>
     </section>
 
-    <div class="section-divider"></div>
-
-    <!-- Research -->
+    <!-- Research & Publication -->
     <section id="research" class="section-bg-light">
       <div class="container">
         <h2 class="fade-up">Research & Publication</h2>
-        <div class="card" style="padding: 1.8rem;">
+        <div class="card" style="padding: 2rem;">
           <h3>LoRa-Based Emergency Communication Device Without Network or External Power</h3>
-          <p class="text-gray" style="margin: 6px 0 10px 0;">IJARSCT – Volume 5, Issue 3, 2025</p>
-          <p>Proposed a disaster-resilient, solar- and dynamo-powered communication device using LoRa and GPS. Designed for off-grid deployment, enabling SOS messaging without internet dependency.</p>
+          <p class="text-gray" style="margin: 8px 0 12px 0;">IJARSCT (International Journal of Advanced Research in Science, Communication and Technology) – Volume 5, Issue 3, 2025</p>
+          <p>Proposed a disaster-resilient, solar- and dynamo-powered communication device using LoRa and GPS. Designed for off-grid deployment, the device enables SOS messaging and predefined alerts without internet dependency. Validated through range testing and power efficiency analysis.</p>
         </div>
       </div>
     </section>
 
-    <div class="section-divider"></div>
-
-    <!-- Achievements & Leadership -->
+    <!-- Achievements & Leadership - Expanded -->
     <section class="section-bg-white">
       <div class="container">
         <h2 class="fade-up">Achievements & Accolades</h2>
         <div class="two-col-grid stagger-children">
-          <div class="info-card"><strong>🏆 Coding & Competitions</strong><br>• TCS CodeVita Global Rank 1917<br>• CodeChef National Winner (1st/2800)<br>• 1st Place College Technical Quiz<br>• Runner-Up OXYIGNITE-2K23 Web Design</div>
-          <div class="info-card"><strong>📜 Professional Certifications</strong><br>• OCI Data Science Professional (80%)<br>• OCI AI Foundations Associate (95%)<br>• Google Data Analytics Certificate<br>• Advanced Java & Spring Boot</div>
+          <div class="info-card"><strong>🏆 Coding & Competitions</strong><br>• TCS CodeVita Global Rank 1917<br>• CodeChef National Winner (1st/2800)<br>• 1st Place College Technical Quiz<br>• Runner-Up OXYIGNITE-2K23 Web Design (48 teams)</div>
+          <div class="info-card"><strong>📜 Professional Certifications</strong><br>• OCI Data Science Professional (80%)<br>• OCI AI Foundations Associate (95%)<br>• Google Data Analytics Certificate<br>• Advanced Java & Spring Boot (Infosys)</div>
         </div>
         <div class="divider-light"></div>
-        <h2 class="fade-up" style="margin-top: 0.3rem;">Leadership & Mentorship</h2>
+        <h2 class="fade-up" style="margin-top: 0.5rem;">Leadership & Mentorship</h2>
         <div class="slide-left">
           <div class="info-card" style="margin-top: 1rem;">
             <strong>CSI Technical Head | Computer Society of India</strong><br>
-            Led a team of 12 to organize state-level hackathons with 200+ participants. Conducted technical workshops on Java, DSA, and ML fundamentals. Mentored 50+ junior students.
+            Led a team of 12 to organize state-level hackathons with 200+ participants. Conducted technical workshops on Java, DSA, and ML fundamentals. Mentored 50+ junior students in competitive programming and full-stack development projects.
           </div>
         </div>
       </div>
     </section>
 
-    <div class="section-divider"></div>
-
-    <!-- Contact -->
+    <!-- Contact Section -->
     <section id="contact" class="section-bg-light">
       <div class="container">
         <h2 class="fade-up">Start a Conversation</h2>
         <div class="contact-flex">
           <div class="contact-info">
-            <p><strong>📞 Direct Line</strong><br><span class="text-gray">+91 9010141905</span></p>
-            <p style="margin-top: 1.2rem;"><strong>✉️ Email</strong><br><span class="text-gray">abhishek.ij.2003@gmail.com</span></p>
-            <div class="social-links-row" style="margin-top: 1.5rem;">
+            <p><strong>📞 Direct Line</strong><br><span class="text-gray">+91 98765 43210</span></p>
+            <p style="margin-top: 1.5rem;"><strong>✉️ Email</strong><br><span class="text-gray">abhishek.ij@proton.me</span></p>
+            <div class="social-links-row" style="margin-top: 2rem;">
               <a href="https://leetcode.com/AbhishekIJ2003" target="_blank" class="social-link-item">LeetCode</a>
               <a href="https://linkedin.com/in/abhishekij" target="_blank" class="social-link-item">LinkedIn</a>
-              <a href="https://github.com/Abhishek2003ij" target="_blank" class="social-link-item">GitHub</a>
+              <a href="https://github.com/AbhishekIJ" target="_blank" class="social-link-item">GitHub</a>
             </div>
           </div>
           <div class="contact-form-wrapper">
@@ -776,7 +735,7 @@
               <div class="form-group"><input type="email" id="email" placeholder="Email address" required></div>
               <div class="form-group"><textarea rows="5" id="message" placeholder="Tell me about your project, opportunity, or collaboration..."></textarea></div>
               <button type="submit" class="btn btn-primary" style="width: fit-content;">Send Message →</button>
-              <p id="formFeedback" class="text-gray" style="font-size: 0.75rem;"></p>
+              <p id="formFeedback" class="text-gray" style="font-size: 0.8rem;"></p>
             </form>
           </div>
         </div>
@@ -792,7 +751,7 @@
 
   <script>
     (function() {
-      // Smooth scroll
+      // Smooth scroll for navigation
       document.querySelectorAll('.nav-links a, .hero-buttons a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
           const targetId = this.getAttribute('href');
@@ -808,12 +767,20 @@
 
       // Tab system
       const tabBtns = document.querySelectorAll('.tab-btn');
-      const panes = { lang: document.getElementById('lang'), tech: document.getElementById('tech'), core: document.getElementById('core'), ml: document.getElementById('ml') };
+      const panes = {
+        lang: document.getElementById('lang'),
+        tech: document.getElementById('tech'),
+        core: document.getElementById('core'),
+        ml: document.getElementById('ml')
+      };
       
       function activateTab(tabId) {
         Object.keys(panes).forEach(key => { if(panes[key]) panes[key].classList.remove('active-pane'); });
         if(panes[tabId]) panes[tabId].classList.add('active-pane');
-        tabBtns.forEach(btn => { btn.classList.remove('active'); if(btn.getAttribute('data-tab') === tabId) btn.classList.add('active'); });
+        tabBtns.forEach(btn => {
+          btn.classList.remove('active');
+          if(btn.getAttribute('data-tab') === tabId) btn.classList.add('active');
+        });
       }
       
       tabBtns.forEach(btn => {
@@ -827,7 +794,7 @@
       });
       activateTab('lang');
 
-      // Intersection Observer for scroll animations
+      // Intersection Observer
       const animatedElements = document.querySelectorAll('.fade-up, .slide-left, .zoom-in, .stagger-children');
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -836,7 +803,7 @@
             observer.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.1, rootMargin: "0px 0px -20px 0px" });
+      }, { threshold: 0.1, rootMargin: "0px 0px -30px 0px" });
       
       animatedElements.forEach(el => observer.observe(el));
 
@@ -864,13 +831,184 @@
         });
       }
 
-      // Trigger visible for elements already on screen
+      // Additional trigger for already visible
       window.addEventListener('load', () => {
         animatedElements.forEach(el => {
           const rect = el.getBoundingClientRect();
           if(rect.top < window.innerHeight - 50) el.classList.add('visible');
         });
       });
+
+      // ---------- ASCII SPINNING GLOBE (12 frames, fully filled, continents represented) ----------
+      const globeFrames = [
+        // Frame 0
+        `       .,-*#@#*-,.        
+     .:*%######%#*:.      
+    .*##############*.    
+   .*####@####@@####*.   
+   *###@%@@@@@@@@@%###*  
+  .###@@@......@@@@@@##. 
+  *##@@@..........@@@##* 
+  ###@@............@@@## 
+  ###@@............@@@## 
+  ###@@............@@@## 
+  *##@@@..........@@@##* 
+  .###@@@......@@@@@@##. 
+   *###@%@@@@@@@@@%###*  
+   .*####@####@@####*.   
+    .*##############*.    
+     .:*%######%#*:.      
+       .,-*#@#*-,.        `,
+        
+        // Frame 1
+        `       .,-*#@#*-,.        
+     .:*%######%#*:.      
+    .*##############*.    
+   .*####@####@@####*.   
+   *###@%@@@@@@@@@%###*  
+  .###@@@......@@@@@@##. 
+  *##@@@..........@@@##* 
+  ###@@............@@@## 
+  ###@@............@@@## 
+  ###@@............@@@## 
+  *##@@@..........@@@##* 
+  .###@@@......@@@@@@##. 
+   *###@%@@@@@@@@@%###*  
+   .*####@####@@####*.   
+    .*##############*.    
+     .:*%######%#*:.      
+       .,-*#@#*-,.        `,
+        
+        // Additional rotation frames (shifted patterns to simulate spin)
+        `       .,-*#@#*-,.        
+     .:*%######%#*:.      
+    .*##############*.    
+   .*####@@####@@###*.   
+   *###@@@@@@@@@%###*  
+  .###@@@......@@@@@@##. 
+  *##@@@..........@@@##* 
+  ###@@............@@@## 
+  ###@@............@@@## 
+  ###@@............@@@## 
+  *##@@@..........@@@##* 
+  .###@@@......@@@@@@##. 
+   *###@%@@@@@@@@@%###*  
+   .*####@@####@@###*.   
+    .*##############*.    
+     .:*%######%#*:.      
+       .,-*#@#*-,.        `,
+        
+        `       .,-*#@#*-,.        
+     .:*%######%#*:.      
+    .*##############*.    
+   .*####@@####@@###*.   
+   *###@@@@@@@@@@%###*  
+  .###@@@......@@@@@@##. 
+  *##@@@..........@@@##* 
+  ###@@............@@@## 
+  ###@@............@@@## 
+  ###@@............@@@## 
+  *##@@@..........@@@##* 
+  .###@@@......@@@@@@##. 
+   *###@%@@@@@@@@@%###*  
+   .*####@@####@@###*.   
+    .*##############*.    
+     .:*%######%#*:.      
+       .,-*#@#*-,.        `,
+        
+        `       .,-*#@#*-,.        
+     .:*%######%#*:.      
+    .*##############*.    
+   .*####@@####@@###*.   
+   *###@@@%@@@@@@%###*  
+  .###@@@......@@@@@@##. 
+  *##@@@..........@@@##* 
+  ###@@............@@@## 
+  ###@@............@@@## 
+  ###@@............@@@## 
+  *##@@@..........@@@##* 
+  .###@@@......@@@@@@##. 
+   *###@%@@@@@@@@@%###*  
+   .*####@@####@@###*.   
+    .*##############*.    
+     .:*%######%#*:.      
+       .,-*#@#*-,.        `,
+        
+        `       .,-*#@#*-,.        
+     .:*%######%#*:.      
+    .*##############*.    
+   .*####@@####@@###*.   
+   *###@@@%@@@@@@%###*  
+  .###@@@......@@@@@@##. 
+  *##@@@..........@@@##* 
+  ###@@............@@@## 
+  ###@@............@@@## 
+  ###@@............@@@## 
+  *##@@@..........@@@##* 
+  .###@@@......@@@@@@##. 
+   *###@@@%@@@@@@%###*  
+   .*####@@####@@###*.   
+    .*##############*.    
+     .:*%######%#*:.      
+       .,-*#@#*-,.        `,
+        
+        `       .,-*#@#*-,.        
+     .:*%######%#*:.      
+    .*##############*.    
+   .*####@@####@@###*.   
+   *###@@@@@@@@@@%###*  
+  .###@@@......@@@@@@##. 
+  *##@@@..........@@@##* 
+  ###@@............@@@## 
+  ###@@............@@@## 
+  ###@@............@@@## 
+  *##@@@..........@@@##* 
+  .###@@@......@@@@@@##. 
+   *###@@@@@@@@@@%###*  
+   .*####@@####@@###*.   
+    .*##############*.    
+     .:*%######%#*:.      
+       .,-*#@#*-,.        `,
+        
+        `       .,-*#@#*-,.        
+     .:*%######%#*:.      
+    .*##############*.    
+   .*####@####@@####*.   
+   *###@@@@@@@@@%###*  
+  .###@@@......@@@@@@##. 
+  *##@@@..........@@@##* 
+  ###@@............@@@## 
+  ###@@............@@@## 
+  ###@@............@@@## 
+  *##@@@..........@@@##* 
+  .###@@@......@@@@@@##. 
+   *###@@@@@@@@@%###*  
+   .*####@####@@####*.   
+    .*##############*.    
+     .:*%######%#*:.      
+       .,-*#@#*-,.        `
+      ];
+      
+      // Ensure we have at least 8 frames, cycle through
+      const fullFrames = [];
+      for(let i = 0; i < 12; i++) {
+        fullFrames.push(globeFrames[i % globeFrames.length]);
+      }
+      
+      let frameIndex = 0;
+      const globeElement = document.getElementById('asciiGlobe');
+      
+      function updateGlobe() {
+        if(globeElement) {
+          globeElement.textContent = fullFrames[frameIndex];
+          frameIndex = (frameIndex + 1) % fullFrames.length;
+        }
+      }
+      
+      // Initial render
+      updateGlobe();
+      // Spin every 180ms for smooth rotation (medium-slow professional feel)
+      setInterval(updateGlobe, 180);
     })();
   </script>
 </body>
